@@ -167,7 +167,16 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ================== MAIN ==================
 
 if __name__ == "__main__":
-    app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
-    app.add_handler(MessageHandler(filters.TEXT, handler))
-    print("🤖 AutoDev AI rodando...")
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    import threading
+
+    def keep_alive():
+        port = int(os.environ.get("PORT", 10000))
+        server = HTTPServer(("0.0.0.0", port), BaseHTTPRequestHandler)
+        server.serve_forever()
+
+    threading.Thread(target=keep_alive, daemon=True).start()
+        app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+        app.add_handler(MessageHandler(filters.TEXT, handler))
+        print("🤖 AutoDev AI rodando...")
     app.run_polling()
