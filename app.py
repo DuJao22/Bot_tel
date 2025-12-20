@@ -18,9 +18,9 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTyp
 
 # ================== ENV ==================
 
-TELEGRAM_TOKEN = "7716174545:AAHJbYiQOUTWdyCEgOq_1ZT-le>
+TELEGRAM_TOKEN = "7716174545:AAHJbYiQOUTWdyCEgOq_1ZT-lew1UP_z9UM"
 TELEGRAM_CHAT_ID = "7134256288"
-GEMINI_API_KEY = "AIzaSyCqLitiUxASbBVDVJa0whABi3LkB2r6z>
+GEMINI_API_KEY = "AIzaSyCqLitiUxASbBVDVJa0whABi3LkB2r6zxc"
 
 if not all([TELEGRAM_TOKEN, TELEGRAM_CHAT_ID, GEMINI_API_KEY]):
     raise Exception("Configure as variáveis de ambiente corretamente")
